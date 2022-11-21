@@ -2,16 +2,12 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
 import os
-import logging
-
-log = logging.getLogger(__name__)
 
 def hello_world(request):
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
         name = "world"
-    message = "Good morning, " + name + "!\n"
-    log.info(os.environ)
+    message = "Hello, " + name + "!\n"
     return Response(message)
 
 if __name__ == '__main__':
