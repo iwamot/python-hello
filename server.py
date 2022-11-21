@@ -8,6 +8,7 @@ def hello_world(request):
     if name == None or len(name) == 0:
         name = "world"
     message = "Good morning, " + name + "!\n"
+    print(os.environ)
     return Response(message)
 
 if __name__ == '__main__':
@@ -18,4 +19,3 @@ if __name__ == '__main__':
         app = config.make_wsgi_app()
     server = make_server('0.0.0.0', port, app)
     server.serve_forever()
-    print(os.environ)
